@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labtest Patient Form</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/labtest.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-section">
+            <h2>1. Patient Contact Details</h2>
+            <form id="patient-form" onsubmit="return validateForm()">
+                <div class="form-group input-field width100px">
+                    <input type="text" id="full-name" required>
+                    <label for="full-name">Full Name</label>
+                    <div class="error" id="full-name-error"></div>
+                </div>
+                <div class="form-group input-field width200px">
+                    <input type="text" id="patient-id">
+                    <label for="patient-id">Patient Id (if exists)</label>
+                </div>
+                <div class="form-group input-field width150px">
+                    <input type="text" id="contact-number" required pattern="\d{10}">
+                    <label for="contact-number">Contact Number</label>
+                    <div class="error" id="contact-number-error"></div>
+                </div>
+                <div class="form-group input-field width200px">
+                    <input type="email" id="email" required>
+                    <label for="email">Email Id</label>
+                    <div class="error" id="email-error"></div>
+                </div>
+
+                <h2>2. Address</h2>
+                <div class="form-group input-field width150px">
+                    <input type="text" id="house-number" required>
+                    <label for="house-number">House Number</label>
+                    <div class="error" id="house-number-error"></div>
+                </div>
+                <div class="form-group input-field width150px">
+                    <input type="text" id="street" required>
+                    <label for="street">Street</label>
+                    <div class="error" id="street-error"></div>
+                </div>
+                <div class="form-group input-field width150px">
+                    <input type="text" id="area" required>
+                    <label for="area">Area</label>
+                    <div class="error" id="area-error"></div>
+                </div>
+                <div class="form-group input-field width150px">
+                    <select id="district" required>
+                        <option value="" disabled selected>Choose</option>
+                        <option value="district1">District 1</option>
+                        <option value="district2">District 2</option>
+                        <option value="district3">District 3</option>
+                    </select>
+                    <label for="district">District</label>
+                    <div class="error" id="district-error"></div>
+                </div>
+
+                <h2>3. Choose the Test Type</h2>
+                <div class="form-group">
+                    <p>
+                        <label>
+                            <input type="checkbox" id="cbc" />
+                            <span>CBC</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" id="urine" />
+                            <span>Complete Urine</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" id="lipid" />
+                            <span>Lipid Profile</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" id="tsh" />
+                            <span>Thyroid Stimulating Hormone (TSH)</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" id="glucose" />
+                            <span>Glucose Test</span>
+                        </label>
+                    </p>
+                    <div class="error" id="test-error"></div>
+                </div>
+
+                <h2>4. Do you want a hard copy of the report also?</h2>
+                <div class="form-group">
+                    <p>
+                        <label>
+                            <input  type="radio" id="hardcopy-yes" name="hardcopy" required />
+                            <span>Yes</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" type="radio" id="hardcopy-no" name="hardcopy" required />
+                            <span>No</span>
+                        </label>
+                    </p>
+                    <div class="error" id="hardcopy-error"></div>
+                </div>
+
+                <h2>5. Select Your Comfortable Date and Time</h2>
+                <div class="form-group input-field width100px">
+                    <input type="text" class="datepicker" id="date" required>
+                    <label for="date">Date</label>
+                    <div class="error" id="date-error"></div>
+                </div>
+                <div class="form-group input-field width100px">
+                    <input type="text" class="timepicker" id="time" required>
+                    <label for="time">Time</label>
+                    <div class="error" id="time-error"></div>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="reset" class="btn">Reset</button>
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="image-container">
+            <img src="images/labtest/lab-test.jpg" alt="Lab Image">
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/labtest.js"></script>
+</body>
+</html>

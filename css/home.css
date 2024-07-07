@@ -1,0 +1,270 @@
+body {
+    margin: 0;
+	
+}
+main {
+    top: 170px;
+    background-color: #F5F5F5;
+    border:2px solid steelblue;
+}
+/* Styling for the non-fixed state */
+nav {
+    position: relative;
+    z-index: 100;
+    background-color: #fff; /* Background color when not fixed */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    /* Other styles as needed */
+}
+
+/* Styling for the fixed state */
+nav.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays above other content */
+    background-color: #fff; /* Background color when fixed */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better separation */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+
+.header {
+    background-color: red;
+    text-align: center;
+	font-size:18px;
+	font-weight:bold;
+	margin: 0;	
+    padding:1px;
+}
+.footer {
+    background-color: black;
+	color:white;
+	font-size:7px;
+	font-weight:normal;
+    text-align: center;
+	margin: 0;	
+    padding:1px;	
+}
+.content{
+	margin: 0;
+	top:0px;
+}
+/* Main menu container */
+.menu {
+    background-color: #7F7F7F;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    z-index: 999; /* Ensure it's above other elements */
+    display: flex; /* Flex for better control */
+}
+
+/* Main menu items */
+.menu li {
+    display: inline-block;
+    padding: 10px 20px; /* Add some padding for better spacing */
+    position: relative; /* Relative positioning for dropdowns */
+    z-index: 1; /* Base z-index */
+}
+
+.menu li:hover {
+    background-color: black; /* Change background on hover */
+    z-index: 2; /* Ensure it stays above others when hovered */
+}
+
+/* Show dropdowns on hover */
+.menu li:nth-child(2):hover #m_1,
+.menu li:nth-child(3):hover #m_2 {
+    display: block;
+}
+
+/* Links in the menu */
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* Dropdown menu styles */
+#m_1, #m_2 {
+    display: none; /* Hide by default */
+    background-color: #F5F5F5;
+    position: absolute;
+    top: 30px; /* Adjust to fit just below the menu */
+    left: 1; /* Align with the parent menu item */
+    padding: 5px;    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    z-index: 1000; /* High z-index to ensure it appears above other content */
+    list-style: none; /* Remove list bullets */
+}
+
+/* Dropdown list items */
+#m_1 li, #m_2 li {
+    padding: 5px 10px; /* Add padding for better click area */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+#m_1 li:hover, #m_2 li:hover {
+    background-color: #E0E0E0; /* Different hover color for dropdown items */
+    z-index: 1001; /* Ensure hover state is above other items */
+}
+
+/* Links in the dropdown */
+#m_1 li a, #m_2 li a {
+    color: #587FAF;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+/* Optional: Add some transition for a smoother appearance */
+#m_1, #m_2 {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu li:nth-child(2):hover #m_1,
+.menu li:nth-child(3):hover #m_2 {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ad-container {
+    height: 75vh;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    padding:2px;
+}
+
+.ad-container .ad-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: adFadeEffect 16s infinite;
+}
+
+/* Specific animation delays for each image */
+.ad-container .ad-image:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.ad-container .ad-image:nth-child(2) {
+    animation-delay: 4s;
+}
+
+.ad-container .ad-image:nth-child(3) {
+    animation-delay: 8s;
+}
+
+.ad-container .ad-image:nth-child(4) {
+    animation-delay: 12s;
+}
+
+/* Keyframes specific to the ad animation */
+@keyframes adFadeEffect {
+    0%, 25%, 100% {
+        opacity: 0;
+    }
+    5%, 20% {
+        opacity: 1;
+    }
+}
+
+.product-list {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding:10px;
+}
+
+.covid-care{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding:10px;
+}
+
+.diabetes-care{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding:10px;
+}
+
+.product-card {
+    background-color: #F3F3FD;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 225px;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    width: 100%;
+    height: 100px;
+    border-radius: 8px 8px 0 0;
+}
+
+.product-title {
+    font-size: 1em;
+    margin: 15px 0;
+    color: #333;
+}
+
+.product-price {
+    font-size: 1.1em;
+    color: #2878E7;
+    margin: 0 0;
+    text-align: left;
+}
+
+.add-to-cart {
+    background-color: #E6E6FA;
+    color: #FFA500;
+    padding: 5px;
+    border: 1px solid steelblue;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 98%;
+    transition: background-color 0.3s ease;
+}
+
+.added-to-cart {
+    background-color: rgb(250, 234, 230) ;
+    border: 2px solid  rgb(0, 255, 76);
+}
+
+.add-to-cart:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .product-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-card {
+        width: 90%;
+        max-width: 400px;
+    }
+}
